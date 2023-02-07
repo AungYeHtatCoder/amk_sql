@@ -1,0 +1,15 @@
+{
+  "name": "amk/app",
+  "autoload": {
+    "psr-4": {
+      "Amk\\App\\": "src/Libs/"
+    }
+  },
+  "authors": [
+    {
+      "name": "AungYeHtatCoder",
+      "email": "aungyehtatcoder2021@gmail.com"
+    }
+  ],
+  "require": {}
+}

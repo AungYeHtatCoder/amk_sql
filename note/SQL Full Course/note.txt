@@ -1,0 +1,331 @@
+show databases; // php myadmin database show 
+use (databases);
+show tables;
+select * from city;
+describe city;
+create database (name);
+show databases;
+use (database name);
+show tables;
+select * from (tables_name);
+
+
+create table tbl_name (name varchar(25), age int, sex char(1), doj date, city varchar(25), salary float);
+describe tbl_name;
+
+insert into user
+values( 2, "Jimmy", 35, "M", "2005-05-30", "Chicago", 70000),
+( 3, "Shane", 30, "M", "1999-06-25", "Seattle", 55000),
+(4, "Marry", 28, "F", "2009-03-10", "Boston", 62000),
+(5, "Dwayne", 37, "M", "2011-07-12", "Austin", 57000),
+(6, "Sara", 32, "F", "2017-10-27", "New York", 72000),
+(7,"Ammy", 35, "F", "2014-12-20", "Seattle", 80000);
+
+select * from (tables_name);
+
+## only one record fetch 
+select distinct city from tables_name;
+
+## count coloum 
+select count(name) from tables_name;
+
+## count as asliyet name 
+select count(name) as count_name from tbl_name;
+
+## sum 
+select sum(salary) from tbl_name;
+
+## avg 
+select avg(salary) from tbl_name;
+
+## specify coloum fetch
+select name, age, city from tbl_name;
+
+## where caluse (to filter)
+select * from tbl_name where age > 30;
+
+select name, sex, city from tbl_name where sex ='f';
+## or operator
+select * from tbl_name where city = 'Chicago' or city = 'Austin';
+
+## in operator
+select * from tbl_name where city in ('Chicago', Austin);
+
+## between operator
+select * from tbl_name where doj between '2000-01-01' and '2010-01-01';
+## two condition 
+select * from tbl_name where age > 30 and sex = 'm';
+
+## group by 
+select sex, sum(salary) as total_salary from tbl_name group by sex;
+
+## order by desc / asc 
+select * from tbl_name order by salary;
+
+## length function 
+select length('India) as total_len;
+
+## repeat 
+select repeat('@', 10);
+
+## upper('India');
+select upper('India');
+## lower
+select lower('INDIA');
+
+## date time
+select curdate();
+
+## current day
+select day (curdate());
+## curdate 
+select now();
+
+## string function
+select name, character_length(name) as total_length
+from users;
+
+## students table 
+create table students (st_roll int, age int, name va
+rchar(30), mark float);
+
+insert into students
+values(501,10,'Ruth', 75.0),
+(502,12, 'Mike', -20.5),
+(503, 13, 'Dave', 90.0),
+(504, 10, "Jacobs", -12.5);
+
+## concat function -> concatination 
+## concat test
+select concat("Myanmar ", "is ", " in Asia");
+
+select concat("Myanmar ", "is ", " in Asia") as merged;
+## concat test from table students -> name age concat
+select st_roll, name, concat(name, " ", age) as name
+_age from students;
+
+
+## reverse test
+select reverse('Myanmar);
+
+## reverse test from table
+select reverse(name) from students;
+## replace function -> replace vegetable with fruit
+select replace("Orange is a vegetable", "vegetable", "fruit");
+
+## ltrim function 
+select length("        Myanmar          ");
+select ltrim("        Myanmar          ");
+select length(ltrim("    Myanmar      "));
+## rtrim function
+select rtrim("        Myanmar          ");
+## position function
+select position("fruit" in "Orange is a fruit") as name;
+
+## ascii
+select ascii('a');
+
+select ascii(4);
+
+## next lesson 
+## Group by & Having in SQL 
+## create employees table
+create table employees(emp_id int primary key, emp_name varchar(50), age int, gender char(1), doj date, dept varchar(50), city varchar(50), salary float);
+
+## data insert into employees 
+insert into employees values(113, "Sara", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(114, "Marry", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(115, "John", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(116, "Ammy", 32, 'F', '2001-10-01', 'Tech', 'Seattle', 411121),
+(117, "Angle", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(118, "MarCus", 35, 'M', '2000-10-01', 'IT', 'Seattle', 411121),
+(119, "Shopia", 32, 'F', '2001-10-01', 'Sale', 'Seattle', 411121),
+(120, "Cherry", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(121, "Amelia", 35, 'M', '2000-10-01', 'Finance', 'Seattle', 411121),
+(122, "Robert", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(123, "William", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(124, "Bella", 35, 'M', '2000-10-01', 'Finance', 'Seattle', 411121),
+(125, "Miya", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(126, "Chou", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(127, "Aldoul", 35, 'M', '2016-10-01', 'Marketing', 'Seattle', 411121),
+(128, "Layla", 32, 'F', '2001-10-01', 'Finance', 'Seattle', 411121),
+(129, "Saivana", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(130, "Roger", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(131, "Yin", 32, 'F', '2019-05-05', 'IT', 'NewYork', 74125),
+(132, "Marcov", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(133, "NaNa", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(134, "Erora", 32, 'F', '2012-10-01', 'Marketing', 'Seattle', 411121),
+(135, "Karina", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(136, "Natalia", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(137, "Assasin", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(138, "Saver", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(139, "Helcurt", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(140, "Joy", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(141, "Franko", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(142, "Bruno", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(143, "Khing Myat Myat Soe", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(144, "Thea Nu Phyu", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(145, "Inginhlainkyaw", 35, 'M', '2020-10-01', 'Marketing', 'Seattle', 411121),
+(146, "Hey Mar Kyaw", 32, 'F', '2011-10-01', 'Marketing', 'Seattle', 411121),
+(147, "Wine Aung", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(148, "Aung Ye Htat", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(149, "Myint Lwin", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(150, "ThuRaMyoHtat", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(151, "AMK", 35, 'M', '2000-10-01', 'Marketing', 'Seattle', 411121),
+(152, "ShweSiHlaing", 32, 'F', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(153, "KThewMoe", 41, 'M', '2010-01-01', 'Product', 'Austin', 52123),
+(154, "HeinMinHtat", 35, 'M', '2004-10-01', 'Marketing', 'Seattle', 411121),
+(155, "KyiSoeLin", 32, 'F', '2003-10-01', 'Marketing', 'Seattle', 411121),
+(156, "PanEiphyu", 41, 'M', '2002-01-01', 'Product', 'Austin', 52123),
+(157, "PhyuPhyuMyint", 35, 'M', '2001-10-01', 'Marketing', 'Seattle', 411121),
+(158, "MayMyatHmu", 32, 'F', '2020-10-01', 'Marketing', 'Seattle', 411121),
+(159, "MayMyatMon", 41, 'M', '2019-01-01', 'Product', 'Austin', 52123),
+(160, "SoeThiHa", 35, 'M', '2018-10-01', 'Marketing', 'Seattle', 411121),
+(161, "MaEi", 32, 'F', '2017-10-01', 'Marketing', 'Seattle', 411121),
+(162, "ThiRi", 41, 'M', '2016-01-01', 'Product', 'Austin', 52123),
+(163, "ThuYa", 35, 'M', '2015-10-01', 'Marketing', 'Seattle', 411121);
+
+## display data from employees 
+select * from employees;
+
+## find the average salary of employees in each department 
+select dept, avg(salary) as average_salary from employ
+ees group by dept;
+
+## unique record filter with distinct function for city
+select distinct city from employees;
+
+## unique record filter with distinct function for department
+
+select distinct dept from employees;
+
+## average for age 
+ select avg(age) from employees;
+## average age in each department
+select dept, avg(age) from employees group by dept;
+## with asliyet
+select dept, avg(age) as average_age from employees group by dept;
+
+## with round function -> round function take 2 paramiter 
+select dept, round(avg(age), 1) as average_age from employees group by dept;
+
+## total salary accroding to department 
+select dept, sum(salary) from employees group by de
+pt;
+
+## with asliyet 
+select dept, sum(salary) as total_salary from employees group by dept;
+
+## 
+select count(emp_id), city from employees group by city order by count(emp_id) desc;
+
+## group by year 
+select year(doj) as year, count(emp_id) from employees group by year(doj);
+
+## Sale table 
+create table sales (product_id int primary key, sell_price float, quantity int, state varchar(20));
+## insert data to sales table 
+insert into sales values
+(1, 100, 10, 'California'),
+(2, 200, 20, 'Yangon'),
+(3, 300, 30, 'Myanmar'),
+(4, 400, 40, 'Mandalay'),
+(5, 500, 50, 'India'),
+(6, 600, 60, 'Thai'),
+(7, 700, 70, 'Malaysai'),
+(8, 800, 80, 'Singapu'),
+(9, 900, 90, 'Naypyitaw'),
+(10, 1000, 100, 'Mitthila'),
+(11, 1100, 110, 'Pakicstan'),
+(12, 1200, 120, 'Australia'),
+(13, 1300, 130, 'NewYork'),
+(14, 1400, 140, 'NewYork'),
+(15, 1500, 150, 'NewYork'),
+(16, 1600, 160, 'NewYork'),
+(17, 1700, 170, 'Thai'),
+(18, 1800, 180, 'Thai'),
+(19, 1900, 190, 'Malaysai'),
+(20, 2000, 200, 'Thai'),
+(21, 2100, 210, 'Texas'),
+(22, 2200, 220, 'Washington'),
+(23, 2300, 230, 'Ohio'),
+(24, 2400, 240, 'Chicago'),
+(25, 2500, 250, 'China'),
+(26, 2600, 260, 'Arizona'),
+(27, 2700, 270, 'Kansas'),
+(28, 2800, 280, 'Karbala'),
+(29, 2900, 290, 'WA'),
+(30, 3000, 300, 'WA'),
+(31, 3100, 310, 'WA'),
+(32, 3200, 320, 'WA'),
+(33, 3300, 330, 'WA'),
+(34, 3400, 340, 'WA'),
+(35, 3500, 350, 'WA'),
+(36, 3600, 360, 'WA'),
+(37, 3700, 370, 'WA'),
+(38, 3800, 380, 'WA'),
+(39, 3900, 390, 'Alaska'),
+(40, 4000, 400, 'Alaska'),
+(41, 4100, 410, 'Alaska'),
+(42, 4200, 420, 'Alaska'),
+(43, 4300, 430, 'Alaska'),
+(44, 4400, 440, 'Alaska'),
+(45, 4500, 450, 'Alaska'),
+(46, 4600, 460, 'Alaska'),
+(47, 4700, 470, 'Alaska'),
+(48, 4800, 480, 'Alaska'),
+(49, 4900, 490, 'Alaska'),
+(50, 5000, 500, 'Alaska'),
+(51, 5100, 510, 'Alaska'),
+(52, 5200, 520, 'Alaska'),
+(53, 5300, 530, 'Alaska'),
+(54, 5400, 540, 'Alaska'),
+(55, 5500, 550, 'Alaska'),
+(56, 5600, 560, 'Alaska'),
+(57, 5700, 570, 'Alaska'),
+(58, 5800, 580, 'Alaska'),
+(59, 5900, 590, 'Alaska'),
+(60, 6000, 600, 'Alaska'),
+(61, 6100, 610, 'Alaska'),
+(62, 6200, 620, 'Alaska'),
+(63, 6300, 630, 'Myanmar'),
+(64, 6400, 640, 'Myanmar'),
+(65, 6500, 650, 'Alaska'),
+(66, 6600, 660, 'SriLanka'),
+(67, 6700, 670, 'SriLanka'),
+(68, 6800, 680, 'America'),
+(69, 6900, 690, 'England'),
+(70, 7000, 700, 'Germany'),
+(71, 7100, 710, 'Philippines'),
+(72, 7200, 720, 'colombia'),
+(73, 7300, 730, 'Alaska'),
+(74, 7400, 740, 'Alaska');
+
+## sum total price group by product_id;
+select product_id, sum(sell_price * quantity) as revenue from sales group by product_id;
+
+## create c_product table
+create table c_product (product_id int, cost_pric
+e float);
+## insert data 
+insert into c_product values(1, 270.0),
+(2, 345.0);
+
+## caculate the profit
+select c.product_id, sum((s.sell_price - c.cost_price) * s.quantity) as profit from sales as s inner join c_product as c where s.product_id = c.product_id group by c.product_id;
+
+## Having caluse 
+select count(emp_id), city from employees group by city h
+aving count(emp_id) > 2;
+
+select dept, avg(salary) as average_salary from employees group by dept having avg(salary) > 50000;
+
+select city, sum(salary) as total from employees  group by city having sum(salary) > 50000;
+
+select dept, count(*) as emp_count from employees group by dept having count(*) > 2;
+
+select city, count(*) as emp_count from employees where city != "Austin"
+group by city
+having count(*) > 2;
+
+select dept, count(*) as emp_count from employees group by dept having avg(salary) > 50000;
