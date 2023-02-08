@@ -44,7 +44,9 @@ select name, age, city from tbl_name;
 ## where caluse (to filter)
 select * from tbl_name where age > 30;
 
-select name, sex, city from tbl_name where sex ='f';
+select name, sex, city from users where sex ='f';
+
+select name, city, salary from users where sex = 'f';
 ## or operator
 select * from tbl_name where city = 'Chicago' or city = 'Austin';
 

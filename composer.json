@@ -11,5 +11,7 @@
       "email": "aungyehtatcoder2021@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "fakerphp/faker": "^1.21"
+  }
 }
