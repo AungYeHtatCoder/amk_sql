@@ -140,3 +140,37 @@ e float);
 ## insert data 
 insert into c_product values(1, 270.0),
 (2, 345.0);
+
+
+## Table Join 
+create table cricket(cricket_id int auto_increment, n
+ame varchar(30), primary key(cricket_id));
+
+## insert into data cricket table
+insert into cricket values()
+
+create table football (football_id int auto_increment, name varchar(30), primary key(football_id));
+
+## create table products // productCode / productName / productLine / productScale / productVendor / productDescription / quantityInstock / buyPrice / MSRP / 
+
+create table products(productCode int auto_increment, productName varchar(250), productLine varchar(250), productScale varchar(250), productVendor varchar(250), productDescription text, quantityInstock float, buyPrice float, MSRP float, primary key(productCode));
+
+## create table productlines // productLine / textDescription / htmlDescription / image 
+
+create table productlines(productLine varchar(250), textDescription text, htmlDescription text, image varchar(255));
+
+## create table orders // orderNumber / orderDate / requiredDate / shippedDate / status / comments / customerNumber
+
+create table orders(orderNumber int auto_increment, orderDate date, requiredDate date, shippedDate date, status varchar(250), comments text, customerNumber int, primary key(orderNumber));
+
+## create orderdetails // orderNumber / productCode / quantityOrdered / priceEach / orderLineNumber
+
+create table orderdetails(orderNumber int, productCode varchar(250), quantityOrdered int, priceEach float, orderLineNumber int);
+
+## create table customers // customerNumber / customerName / contactLastName / contactFirstName / phone / addressLine1 / addressLine2 / city / state / postalCode / country / salesRepEmployeeNumber / creditLimit
+
+create table customers(customerNumber int auto_increment, customerName varchar(250), contactLastName varchar(250), contactFirstName varchar(250), phone varchar(250), addressLine1 varchar(250), addressLine2 varchar(250), city varchar(250), state varchar(250), postalCode varchar(250), country varchar(250), salesRepEmployeeNumber int, creditLimit float, primary key(customerNumber));
+
+## right Join
+## create employee_tables table
+create table employee_tables(employeeNumber int auto_increment, lastName varchar(250), firstName varchar(250), extension varchar(250), email varchar(250), officeCode varchar(250), reportsTo int, jobTitle varchar(250), primary key(employeeNumber));

@@ -72,7 +72,9 @@ $getTotalSalaryByHourly = $db->getTotalSalaryByHourly();
 </head>
 
 <body>
- <div class="container">
+ <?php include('navbar.php'); ?>
+ <div class="container mt-5">
+
   <div class="row">
    <div class="col-8">
     <div class="card">

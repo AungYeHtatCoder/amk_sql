@@ -186,5 +186,34 @@ public function getTotalSalaryByHourly(){
  return $stmt->fetchAll();
 }
 
+// ## sum 
+//select sum(salary) from user;
+public function getTotalSalary(){
+ $sql = "select sum(salary) as total_salary from user";
+ $stmt = $this->db->prepare($sql);
+ $stmt->execute();
+ return $stmt->fetchAll();
+}
+
+public function getAvgTotalSalary(){
+ $sql = "select avg(salary) as avg_salary from user";
+ $stmt = $this->db->prepare($sql);
+ $stmt->execute();
+ return $stmt->fetchAll();
+}
+
+public function getMinTotalSalary(){
+ $sql = "select min(salary) as min_salary from user";
+ $stmt = $this->db->prepare($sql);
+ $stmt->execute();
+ return $stmt->fetchAll();
+}
+
+public function getMaxTotalSalary(){
+ $sql = "select max(salary) as max_salary from user";
+ $stmt = $this->db->prepare($sql);
+ $stmt->execute();
+ return $stmt->fetchAll();
+}
 
 }

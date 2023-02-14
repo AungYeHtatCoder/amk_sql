@@ -46,7 +46,7 @@ select * from tbl_name where age > 30;
 
 select name, sex, city from users where sex ='f';
 
-select name, city, salary from users where sex = 'f';
+select name, city, salary from users where sex = 'm';
 ## or operator
 select * from tbl_name where city = 'Chicago' or city = 'Austin';
 
@@ -331,3 +331,59 @@ group by city
 having count(*) > 2;
 
 select dept, count(*) as emp_count from employees group by dept having avg(salary) > 50000;
+
+## Table Join 
+create table cricket(cricket_id int auto_increment, n
+ame varchar(30), primary key(cricket_id));
+
+create table football (football_id int auto_increment, name varchar(30), primary key(football_id));
+
+ // inner join cricket and football
+ // select * from cricket as c inner join football as f on c.name=f
+//.name;
+
+
+// inner join with aliases 
+// select c.cricket_id, c.name, f.football_id, f.name from cricket
+ // as c inner join football as f on c.name=f.name;
+
+## create table products // productCode / productName / productLine / productScale / productVendor / productDescription / quantityInstock / buyPrice / MSRP / 
+
+create table products(productCode int auto_increment, productName varchar(250), productLine varchar(250), productScale varchar(250), productVendor varchar(250), productDescription text, quantityInstock float, buyPrice float, MSRP float, primary key(productCode));
+
+## create table productlines // productLine / textDescription / htmlDescription / image 
+
+create table productlines(productLine varchar(250), textDescription text, htmlDescription text, image varchar(255));
+
+// products and productlines table inner join 
+select productLine, productName, textDescription from products inner join productlines  using (productLine);
+
+
+## create table orders // orderNumber / orderDate / requiredDate / shippedDate / status / comments / customerNumber
+
+create table orders(orderNumber int auto_increment, orderDate date, requiredDate date, shippedDate date, status varchar(250), comments text, customerNumber int, primary key(orderNumber));
+
+
+## create orderdetails // orderNumber / productCode / quantityOrdered / priceEach / orderLineNumber
+
+create table orderdetails(orderNumber int, productCode varchar(250), quantityOrdered int, priceEach float, orderLineNumber int);
+
+
+// inner join orders and orderdetails and products
+ select o.orderNumber, o.status, p.productName, sum(quantityOrdered * priceEach) as revenue from orders as o inner join orderdetails as od on o.ord
+ernumber = od.orderNumber inner join products as p on p.productCode = od.productCode group by orderNumber;
+
+## create table customers // customerNumber / customerName / contactLastName / contactFirstName / phone / addressLine1 / addressLine2 / city / state / postalCode / country / salesRepEmployeeNumber / creditLimit
+
+create table customers(customerNumber int auto_increment, customerName varchar(250), contactLastName varchar(250), contactFirstName varchar(250), phone varchar(250), addressLine1 varchar(250), addressLine2 varchar(250), city varchar(250), state varchar(250), postalCode varchar(250), country varchar(250), salesRepEmployeeNumber int, creditLimit float, primary key(customerNumber));
+
+## left join 
+select c.customerNumber, c.customerName, orderNumber, status from customers as c left join orders as o on c.customerNumber = o.customerNumber;
+
+
+## right Join
+## create employee_tables table
+create table employee_tables(employeeNumber int auto_increment, lastName varchar(250), firstName varchar(250), extension varchar(250), email varchar(250), officeCode varchar(250), reportsTo int, jobTitle varchar(250), primary key(employeeNumber));
+
+
+
